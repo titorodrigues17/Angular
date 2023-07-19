@@ -14,8 +14,39 @@ interpolation angular
 
 -->
 
+<!-- Property Binding
+
+<progress max="100" [value]="person.age"></progress>
 <h1>Propiedades</h1>
 <button [disabled]="btnDisabled">Enviar</button>
+<img [src]="person.avatar" alt="">
 
 
-<input type="text" />
+<input type="text" [value]="person.name"/>
+
+-->
+
+
+<!-- Event Binding -->
+<h1>Eventos</h1>
+<button [disabled]="btnDisabled">Enviar</button>
+<button (click)="toggleButton()">Toggle button</button>
+<p>Edad {{person.age}}</p>
+
+<button (click)="  increaseAge()"> Age ✝️</button>
+<progress max="100" [value]="person.age"></progress>
+
+<!--Leer elementos de un scroll-->
+<div class="box" (scroll)="onScroll($event)">
+    <p>Además del evento clic, seguramente el más utilizado, hay otros eventos como el change para detectar cambios en un campo de formulario, el evento scroll para detectar el desplazamiento horizontal/vertical del usuario en el navegador, onKeyUp o onKeyDown para detectar cuando el usuario aprieta o deja de apretar un botón de su teclado.
+
+        La importancia del Event Binding en Angular está dada por la posibilidad de comunicar el componente y la vista, el código TS con el código HTML, intercambiando datos entre ellos.
+        
+        Puedes enviarle al controlador el evento completo que se produce en la vista. Para esto, solo declara un parámetro $event en el método que se encuentra escuchando el evento.</p>
+</div>
+
+<!--Leer elementos de un input-->
+
+<p>{{person.name}}</p>
+<input type="text" [value]="person.name" (keyup)="changeName($event)"/>
+
